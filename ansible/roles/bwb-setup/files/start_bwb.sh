@@ -15,6 +15,7 @@ cmd="sudo docker run --rm -d -p 6080:6080 -p 5900:5900 -v $mountpoint:/data "
 [ -n "$workflow" ] && cmd+="-e STARTING_WORKFLOW=$workflow "
 cmd+="-v /var/run/docker.sock:/var/run/docker.sock 
 -v /tmp/.X11-unix:/tmp/.X11-unix 
+--name bwb
 --privileged 
 --group-add root biodepot/bwb:latest"
 # Start Bwb

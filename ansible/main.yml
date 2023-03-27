@@ -9,3 +9,9 @@
   tasks:
   - ansible.builtin.include_tasks:
       file: dist-upgrade.yml
+  - name: Set color prompt
+    ansible.builtin.shell:
+      cmd: "sed -i 's/^#force_color_prompt/force_color_prompt/' {{ ansible_user_dir }}/.bashrc"
+  - name: Case-insensitive tab complete
+    ansible.builtin.shell:
+      cmd: "echo 'set completion-ignore-case on' > {{ ansible_user_dir }}/.inputrc"
